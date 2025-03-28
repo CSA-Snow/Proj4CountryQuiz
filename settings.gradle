@@ -20,5 +20,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Proj4CountryQuiz"
-include(":app")
- 
+include ':app'

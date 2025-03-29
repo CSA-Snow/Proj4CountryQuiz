@@ -1,11 +1,13 @@
 package edu.cs.uga.proj4countryquiz;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class QuizData {
@@ -40,6 +42,11 @@ public class QuizData {
         return db.isOpen();
     }
 
+    /**
+     * Retrieves all past completed quizzes. Quizzes are ordered from oldest to newest.
+     * @return A list containing all previous completed quizzes in ascending order of their
+     * completion.
+     */
     public List<QuizHistory> retrieveAllHistory() {
         ArrayList<QuizHistory> quizHist = new ArrayList<>();
         Cursor cursor = null;
@@ -75,6 +82,12 @@ public class QuizData {
         return quizHist;
     }
 
+    /**
+     * Generates a question's values and possible answers that will be displayed for the user to
+     * answer.
+     * @param requestedQid The PK of the country/continent pair the question will be generated from
+     * @return a {@code Question} object with the country, correct answer, and two incorrect answers
+     */
     public Question getQuestion(int requestedQid) {
         Cursor cursor = null;
         Question question = null;
@@ -96,6 +109,18 @@ public class QuizData {
         }
     }
         return question;
+    }
+
+    /**
+     * Posts the results and current date to the database in the {@code History} table. To be called
+     * when a user completes a quiz and the results displayed.
+     * @param score a number >=0 and <=6 representing the number of questions correctly answered
+     */
+    public void submitQuiz(int score) {
+        ContentValues values = new ContentValues();
+        values.put(QuizDBHelper.HISTORY_SCORE, score);
+        values.put(QuizDBHelper.HISTORY_DATE, new Date().getTime());
+        db.insert(QuizDBHelper.TABLE_HISTORY, null, values);
     }
 
 }

@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace 'edu.cs.uga.imessedup'
+    namespace 'edu.cs.uga.proj4countryquiz'
     compileSdk 35
 
     defaultConfig {

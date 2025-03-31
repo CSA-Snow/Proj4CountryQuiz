@@ -123,7 +123,4 @@ public class QuizData {
         db.insert(QuizDBHelper.TABLE_HISTORY, null, values);
     }
 
-
-
-
 }

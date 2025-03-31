@@ -17,10 +17,10 @@ public class QuizDBHelper extends SQLiteOpenHelper {
 
     public static final String CREATE_QUESTIONS =
             "create table " + TABLE_QUESTIONS + " ("
-                    + QUESTIONS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + QUESTIONS_COUNTRY + " TEXT, "
-                    + QUESTIONS_CONTINENT + " TEXT"
-                    + ")";
+            + QUESTIONS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + QUESTIONS_COUNTRY + " TEXT, "
+            + QUESTIONS_CONTINENT + " TEXT"
+            + ")";
 
     //Table and column names for quiz history
     public static final String TABLE_HISTORY = "quizhistory";
@@ -31,10 +31,10 @@ public class QuizDBHelper extends SQLiteOpenHelper {
     //SQLite does not have a date format. Text format is "YYYY-MM-DD HH:MM:SS.SSS"
     public static final String CREATE_HISTORY =
             "create table " + TABLE_HISTORY + " ("
-                    + HISTORY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + HISTORY_SCORE + " INTEGER, "
-                    + HISTORY_DATE + " INTEGER"
-                    + ")";
+            + HISTORY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + HISTORY_SCORE + " INTEGER, "
+            + HISTORY_DATE + " INTEGER"
+            + ")";
 
     private static QuizDBHelper helperInstance;
 

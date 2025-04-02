@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -52,9 +53,10 @@ public class QuizData {
         Cursor cursor = null;
         int columnIndex;
         try {
-            cursor = db.query(QuizDBHelper.TABLE_HISTORY, historyColumns,
-                    null, null, null, null, QuizDBHelper.HISTORY_DATE);
-
+            //cursor = db.query(QuizDBHelper.TABLE_HISTORY, historyColumns,
+            //        null, null, null, null, QuizDBHelper.HISTORY_DATE);
+            cursor = db.rawQuery("SELECT * FROM quizhistory", null);
+            Log.d("QuizData", "Getting stuff");
             // collect all job leads into a List
             if (cursor != null && cursor.getCount() > 0) {
 

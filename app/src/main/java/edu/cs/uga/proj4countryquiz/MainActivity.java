@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "View History clicked");
-                Intent intent = new Intent(MainActivity.this, ViewHistoryActivity.class);
+                Intent intent = new Intent(MainActivity.this, HistoryView.class); //replace later
                 startActivity(intent);
             }
         });

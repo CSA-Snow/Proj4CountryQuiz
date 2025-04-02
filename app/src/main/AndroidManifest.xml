@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".StartQuizActivity"/>
-        <activity android:name=".ViewHistoryActivity"/>
+        <activity android:name=".HistoryView"/>
 
     </application>
 
